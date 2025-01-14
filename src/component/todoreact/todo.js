@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import "./style.css";
+import logo from "../images/todo.svg"
 
 // get the localStorage data back
 const getLocalData =()=>{
@@ -11,7 +12,6 @@ const getLocalData =()=>{
     return([])
   }
 }
-
 const Todo = () => {
   const [inputData, setInputData]= useState("");
   const [items, setItems]= useState(getLocalData());
@@ -21,7 +21,7 @@ const Todo = () => {
   // add the items function
   const addItem =()=>{
     if(!inputData){
-      alert("Please fill the data")
+      alert("Please fill the data");
     }
     else if(inputData && toggleBtn ){
       setItems(
@@ -32,10 +32,9 @@ const Todo = () => {
          return curElem;
         })
       )
-      setInputData("");
+    setInputData("");
     setIsEditItem(null);
-    setToggleBtn(false)
-      
+    setToggleBtn(false);
     }
     else{
       const myNewInputData ={
@@ -49,12 +48,11 @@ const Todo = () => {
   // edit the items
  const editItem=(index)=>{
     const item_todo_edited = items.find((curElem)=>{
-      return curElem.id == index;
+      return curElem.id === index;
     });
     setInputData(item_todo_edited.name);
     setIsEditItem(index);
-    setToggleBtn(true)
-    
+    setToggleBtn(true); 
   }
 
   // how to delete item section
@@ -63,8 +61,6 @@ const Todo = () => {
         return curElem.id !== index;
     });
     setItems(updatedItem);
-
-    
   }
   // remove all elements
   const removeAll = ()=>{
@@ -79,7 +75,7 @@ const Todo = () => {
       <div className="main-div">
         <div className="child-div">
             <figure>
-                <img src="./images/todo.svg" alt="todologo" />
+                <img src={logo} alt="todologo" />
                 <figcaption>Add your list here ✌</figcaption>
             </figure>
             <div className="addItems">
@@ -89,9 +85,10 @@ const Todo = () => {
                 <i className="fa fa-plus add-btn" onClick={addItem}></i>
                 )}
             </div>
-            {/* Show our items */}
+           
+           {/* Show our items */}
             <div className="showItems">
-              {items.map((curElem, )=>{
+              {items.map((curElem )=>{
                 return(
               <div className="eachItem" key={curElem.id}>
                 <h3>{curElem.name}</h3>

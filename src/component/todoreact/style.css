@@ -13,6 +13,7 @@ html {
 
 .main-div {
   min-height: 100vh;
+  min-width: 100vw;
   background: #060822;
   display: flex;
   justify-content: center;
@@ -22,6 +23,7 @@ html {
 .child-div {
   text-align: center;
   margin-top: 12rem;
+  size: 100%;
 }
 
 .child-div figure img {
@@ -38,7 +40,7 @@ html {
 
 input {
   /* display: block; */
-  min-width: 40rem;
+  min-width: 20vw;
   height: 3.4rem;
   padding: 2rem 1.2rem;
   font-size: 1.8rem;
@@ -54,10 +56,7 @@ input {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-input,
-input:focus,
-input:active,
-input:active:focus {
+input,input:focus,input:active,input:active:focus {
   border: none;
   padding: 2.3rem 1.5rem;
   outline: none;
@@ -114,7 +113,7 @@ input:focus {
   border-radius: 0.5rem;
   margin-bottom: 0.7rem;
   margin-left: 1rem;
-  min-width: 40rem;
+  min-width: 35rem;
   word-break: break-word;
   background: rgb(85, 41, 220);
   display: flex;
@@ -226,3 +225,10 @@ input:focus {
   -webkit-transform: translateY(0) scale(1, 1);
   transform: translateY(0) scale(1, 1);
 }
+
+/* @media (max-width: 800px){
+  input{
+    
+    min-width: 30rem;
+  }
+} */
